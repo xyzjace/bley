@@ -42,7 +42,7 @@ jobs:
   debian-source:
     needs: source
     runs-on: ubuntu-latest
-    container: debian/buildd:bullseye
+    container: debian/buildd:bookworm
     outputs:
       project-name: ${{ needs.source.outputs.project-name }}
       project-version: ${{ needs.source.outputs.project-version }}
@@ -76,7 +76,7 @@ jobs:
   debian-binary:
     needs: debian-source
     runs-on: ubuntu-latest
-    container: debian/buildd:bullseye
+    container: debian/buildd:bookworm
     steps:
       - uses: actions/download-artifact@v4
         with:
